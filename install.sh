@@ -6,48 +6,24 @@
 
 # This script manually makes the required directories, folders and files for the script to run!
 # by default this works under /usr/local/ and uses /usr/local/bin and /usr/local/lib and under /usr/local/lib
-# you can modify the name and path using variables and to get the default you keep install_ver='default' if you want your changes to apply change it to install_ver='custom'
-# credit is you and you can change the text that shows up with the credits to credit you and me (if you want) in any way you want it to say it!!
+# you can modify the name and path using variables
+# credit is you and you can change the text that shows up with the credits to credit you (and me if you want) in any way you want (if you want) to say it!!
+
 program_name='Power control'
 credit=''
 based_on='animmjfan'
-install_ver='default'
-
-if [[ $install_ver == 'default' ]]; then
-	echo "Are you sure you want to use default values for the installation?"
-	echo "Default values will declare the installation path of the libaries to /usr/local/lib and the executable to /usr/local/bin"
-	echo "all under /usr/local/"
-	echo "if you want to modify this then open this script in an editor, change the variables and make sure to change status to custom!"
-	read -p "Are you sure you want to continue? [y/N]: " confirm
-	if [[ $confirm =~ ^[Yy]$ ]]; then
-		echo "Okay then!"
-	else
-		exit 1
-	fi
-	unset confirm
-	echo "Okay then!"
-	install_path='/usr/local'
-	libary_folder='/usr/local/lib'
-	binary_folder='/usr/local/bin'
-	based_on='animmjfan'
-	credit=''
-elif [[ $install_ver == 'custom' ]]; then
-
-	install_path='/usr/local'
-	libary_folder='/usr/local/lib'
-	binary_folder='/usr/local/bin'
-	based_on='animmjfan'
-	credit=''
-	echo -e "install path is $(realpath $install_path)"
-	read -p "Are you sure you want to continue? [y/N]: " confirm
-	confirm=${confirm: -N}
-	if [[ $confirm =~ ^[Yy]$ ]]; then
-		echo "Okay then!"
-	else
-		exit 1
-	fi
-	unset confirm
+install_path='/usr/local'
+libary_folder='/usr/local/lib'
+binary_folder='/usr/local/bin'
+echo -e "install path is $(realpath $install_path)"
+read -p "Are you sure you want to continue? [y/N]: " confirm
+confirm=${confirm: -N}
+if [[ $confirm =~ ^[Yy]$ ]]; then
+echo "Okay then!"
+else
+	exit 1
 fi
+unset confirm
 
 echo -e '\n' # creates two newlines
 install_path=$(realpath $install_path)
