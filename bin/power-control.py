@@ -6,7 +6,7 @@
 
 import subprocess, os, sys
 
-oldState = "2"
+oldState = ""
 doCheck = 0
 binPath = os.path.dirname(os.path.realpath(sys.argv[0]))
 sharePath = os.path.realpath(binPath+"/../share")
