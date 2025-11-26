@@ -19,7 +19,7 @@ echo -e "install path is $(realpath $install_path)"
 read -p "Are you sure you want to continue? [y/N]: " confirm
 confirm=${confirm: -N}
 if [[ $confirm =~ ^[Yy]$ ]]; then
-echo "Okay then!"
+	echo "Okay then!"
 else
 	exit 1
 fi
@@ -36,7 +36,7 @@ if [ ! -d $install_path ]; then
 	read -p "$install_path doesn't exist. Should it be made? [y/N]: " confirm
 	confirm=${confirm: -N}
 	if [[ $confirm =~ ^[Yy]$ ]]; then
-		mkdir $install_path >/dev/null
+		mkdir -p $install_path >/dev/null
 		if [ $? -eq 0 ]; then
 			echo "$install_path was made successfully"
 		else
@@ -44,7 +44,8 @@ if [ ! -d $install_path ]; then
 			exit 1
 		fi
 	else
-		exit 1 
+		exit 1
+	fi
 elif [ -d $install_path ]; then
 	echo "$install_path already exists, skipping it"
 else
