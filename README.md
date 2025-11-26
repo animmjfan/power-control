@@ -1,4 +1,4 @@
-# power-control-template
+# power-control
 
 > [!NOTE]
 > Updates have been moved to not-part-of-program/updates.md
