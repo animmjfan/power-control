@@ -6,21 +6,27 @@
 
 import subprocess, os, sys
 
+oldState = "2"
+doCheck = 0
 binPath = os.path.dirname(os.path.realpath(sys.argv[0]))
 sharePath = os.path.realpath(binPath+"/../share")
 
 while True:
+	while doCheck == 0:
+		with open(str(os.path.realpath(sharePath+"/power-control/state.txt")), 'r') as file:
+			state = file.read().strip()
+		if state != oldState:
+			doCheck = 1
+		else:
+			doCheck = 0
+		oldState = state
+		file.close()
+
 	with open(str(os.path.realpath(sharePath+"/power-control/state.txt")), 'r') as file:
 		state = file.read().strip()
 	if state == "1":
 		subprocess.call(os.path.realpath(sharePath+"/power-control/scripts/pwrON.sh"))
 	elif state == "0":
 		subprocess.call(os.path.realpath(sharePath+"/power-control/scripts/pwrOFF.sh"))
-	elif state == "2":
-		pass
-	else:
-		pass
 	file.close()
-	file = open(str(os.path.realpath(sharePath+"/power-control/state.txt")), 'w')
-	file.write("2")
-	file.close()
+	doCheck = 0
