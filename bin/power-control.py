@@ -22,11 +22,8 @@ while True:
 		oldState = state
 		file.close()
 
-	with open(str(os.path.realpath(sharePath+"/power-control/state.txt")), 'r') as file:
-		state = file.read().strip()
 	if state == "1":
 		subprocess.call(os.path.realpath(sharePath+"/power-control/scripts/pwrON.sh"))
 	elif state == "0":
 		subprocess.call(os.path.realpath(sharePath+"/power-control/scripts/pwrOFF.sh"))
-	file.close()
 	doCheck = 0
