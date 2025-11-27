@@ -7,11 +7,8 @@
 # This script manually makes the required directories, folders and files for the script to run!
 # by default this works under /usr/local/ and uses /usr/local/bin and /usr/local/lib and under /usr/local/lib
 # you can modify the name and path using variables
-# credit is you and you can change the text that shows up with the credits to credit you (and me if you want) in any way you want (if you want) to say it!!
 
-program_name='Power control'
-credit=''
-based_on='animmjfan'
+program_name='Power Control'
 install_path='/usr/local'
 libary_folder='/usr/local/lib'
 binary_folder='/usr/local/bin'
@@ -50,7 +47,9 @@ elif [ -d $install_path ]; then
 	echo "$install_path already exists, skipping it"
 else
 	echo "This error should be impossible"
-	echo "Be proud"
+	echo "Be proud."
+	echo "But seriously, somehow you managed to make your install path exist while the first check was running and not exist before the second check ran in order to display this message."
+	echo "Well done!"
 	exit 1
 fi
 
