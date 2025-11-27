@@ -2,7 +2,7 @@
 
 # if anything goes wrong (that is not user error) file an issuse on github
 # hope you like it...
-# ...and hope it works! please!! (currently not working)
+# ...and hope it works! please!!
 
 import subprocess, os, sys
 
