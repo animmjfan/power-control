@@ -5,3 +5,6 @@
 
 > [!Warning]
 > As it stands everything is WIP (Work in Progress)
+
+> [!NOTE]
+> May be changing to a new name soon
